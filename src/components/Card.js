@@ -12,22 +12,19 @@ class Card extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      /* hasTrunfo,
-      isSaveButtonDisabled,
-      onInputChange,
-      onSaveButtonClick, */
     } = this.props;
 
     return (
       <section>
-        <p data-testid="name-card">{cardName}</p>
+        <p data-testid="name-card">
+          {cardName}
+        </p>
         <img
           data-testid="image-card"
           src={ cardImage }
           alt={ cardName }
         />
         <p data-testid="description-card">
-          {' '}
           {cardDescription}
         </p>
         <p data-testid="attr1-card">
