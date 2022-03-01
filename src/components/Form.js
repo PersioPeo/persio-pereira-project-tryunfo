@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+
 class Form extends React.Component {
   render() {
-    /* eslint-disable max-len */
-    // eslint-disable-next-line max-len
+    // requisito 2
     const {
       cardName,
       cardDescription,
@@ -19,98 +19,87 @@ class Form extends React.Component {
       onInputChange,
       onSaveButtonClick,
     } = this.props;
+    // fim do requisito 2
+
     return (
       <form>
         <label htmlFor="name">
-          Nome:
+          Nome da Carta :
           <input
+            data-testid="name-input"
+            value={ cardName }
             onChange={ onInputChange }
             type="text"
-            data-testid="name-input"
-            id="name"
-            value={ cardName }
-            name="cardName"
           />
         </label>
-        <label htmlFor="desc">
-          Descrição :
+        <label htmlFor="id-descricao">
+          Descrição
           <textarea
-            onChange={ onInputChange }
-            type="textarea"
             data-testid="description-input"
-            id="desc"
             value={ cardDescription }
-            name="cardDescription"
+            onChange={ onInputChange }
+            id="id-descricao"
           />
         </label>
         <label htmlFor="id-attr1">
-          Atributo 01 :
+          Attr1
           <input
-            onChange={ onInputChange }
             type="number"
             data-testid="attr1-input"
-            id="id-attr1"
             value={ cardAttr1 }
-            name="cardAttr1"
+            onChange={ onInputChange }
+            id="id-attr1"
           />
         </label>
         <label htmlFor="id-attr2">
-          Atributo 02 :
+          Attr2
           <input
-            onChange={ onInputChange }
             type="number"
             data-testid="attr2-input"
-            id="id-attr2"
             value={ cardAttr2 }
-            name="cardAttr2"
+            onChange={ onInputChange }
+            id="id-attr2"
           />
         </label>
         <label htmlFor="id-attr3">
-          Atributo 03 :
+          Attr3
           <input
-            onChange={ onInputChange }
             type="number"
             data-testid="attr3-input"
-            id="id-attr3"
             value={ cardAttr3 }
-            name="cardAttr3"
+            onChange={ onInputChange }
+            id="id-attr3"
           />
         </label>
         <label htmlFor="id-imagem">
-          Url da Imagem :
+          link da imagem
           <input
-            onChange={ onInputChange }
             type="text"
             data-testid="image-input"
-            id="id-imagem"
             value={ cardImage }
-            name="cardImagem"
+            onChange={ onInputChange }
+            id="id-imagem"
           />
         </label>
-        <label htmlFor="raridade">
-          Raridade da Carta :
-          <select
-            onChange={ onInputChange }
-            data-testid="rare-input"
-            id="raridade"
-            value={ cardRare }
-            name="cardRare"
-          >
-            <option value="normal">normal</option>
-            <option value="raro">raro</option>
-            <option value="muito raro">muito raro</option>
-          </select>
-        </label>
-        <label htmlFor="id-check">
-          Super Trunfo :
+        <select
+          name="select"
+          data-testid="rare-input"
+          value={ cardRare }
+          onChange={ onInputChange }
+        >
+          <option value="normal">normal</option>
+          <option value="raro">raro</option>
+          <option value="muito raro">muito raro</option>
+        </select>
+        <label htmlFor="id-super-trunfo">
           <input
-            onChange={ onInputChange }
             type="checkbox"
             data-testid="trunfo-input"
-            id="id-check"
             checked={ cardTrunfo }
-            name="cardTrunfo"
+            onChange={ onInputChange }
+            id="id-super-trunfo"
           />
+          Super trunfo
         </label>
         <button
           type="submit"
@@ -120,6 +109,7 @@ class Form extends React.Component {
         >
           Salvar
         </button>
+
       </form>
     );
   }
@@ -134,5 +124,4 @@ Form.propTypes = {
   cardRare: PropTypes.string,
   cardTrunfoum: PropTypes.bool,
 }.isRequired;
-
 export default Form;
