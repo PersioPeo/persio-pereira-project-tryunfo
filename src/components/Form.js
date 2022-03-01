@@ -13,98 +13,98 @@ class Form extends React.Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      // hasTrunfo,
-      isSaveButtonDisabled,
       onInputChange,
-      onSaveButtonClick,
+      /* hasTrunfo,
+      isSaveButtonDisabled,
+      onSaveButtonClick, */
     } = this.props;
     // fim do requisito 2
 
     return (
-      <form>
-        <label htmlFor="name">
+      <form onSubmit={ (e) => e.preventDefault() }>
+        <label htmlFor="cardName">
           Nome da Carta :
           <input
+            name="cardName"
             data-testid="name-input"
-            value={ cardName }
             onChange={ onInputChange }
+            value={ cardName }
             type="text"
           />
         </label>
-        <label htmlFor="id-descricao">
+        <label htmlFor="cardDescription">
           Descrição
           <textarea
+            name="cardDescription"
             data-testid="description-input"
-            value={ cardDescription }
             onChange={ onInputChange }
-            id="id-descricao"
+            value={ cardDescription }
           />
         </label>
-        <label htmlFor="id-attr1">
+        <label htmlFor="cardAttr1">
           Attr1
           <input
+            name="cardAttr1"
             type="number"
             data-testid="attr1-input"
-            value={ cardAttr1 }
             onChange={ onInputChange }
-            id="id-attr1"
+            value={ cardAttr1 }
           />
         </label>
-        <label htmlFor="id-attr2">
+        <label htmlFor="cardAttr2">
           Attr2
           <input
+            name="cardAttr2"
             type="number"
             data-testid="attr2-input"
-            value={ cardAttr2 }
             onChange={ onInputChange }
-            id="id-attr2"
+            value={ cardAttr2 }
           />
         </label>
-        <label htmlFor="id-attr3">
+        <label htmlFor="cardAttr3">
           Attr3
           <input
+            name="cardAttr3"
             type="number"
             data-testid="attr3-input"
-            value={ cardAttr3 }
             onChange={ onInputChange }
-            id="id-attr3"
+            value={ cardAttr3 }
           />
         </label>
-        <label htmlFor="id-imagem">
+        <label htmlFor="cardImage">
           link da imagem
           <input
+            name="cardImage"
             type="text"
             data-testid="image-input"
-            value={ cardImage }
             onChange={ onInputChange }
-            id="id-imagem"
+            value={ cardImage }
           />
         </label>
         <select
           name="select"
           data-testid="rare-input"
-          value={ cardRare }
           onChange={ onInputChange }
+          value={ cardRare }
         >
           <option value="normal">normal</option>
           <option value="raro">raro</option>
           <option value="muito raro">muito raro</option>
         </select>
-        <label htmlFor="id-super-trunfo">
+        <label htmlFor="cardTrunfo">
           <input
+            name="cardTrunfo"
             type="checkbox"
             data-testid="trunfo-input"
-            checked={ cardTrunfo }
             onChange={ onInputChange }
-            id="id-super-trunfo"
+            value={ cardTrunfo }
           />
           Super trunfo
         </label>
         <button
           type="submit"
           data-testid="save-button"
-          disabled={ isSaveButtonDisabled }
-          onClick={ onSaveButtonClick }
+
         >
           Salvar
         </button>
