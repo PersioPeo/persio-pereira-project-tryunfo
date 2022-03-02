@@ -18,9 +18,9 @@ class App extends React.Component {
       hasTrunfo: false,
       isSaveButtonDisabled: true,
       cards: [],
-      /* nameFilter: '',
+      nameFilter: '',
       rareFilter: 'todas',
-      trunfoFilter: false, */
+      trunfoFilter: false,
     };
   }// fim do contructor
 
@@ -114,7 +114,7 @@ class App extends React.Component {
      newCards = cards.filter((card) => card.cardName.includes(nameFilter));
    } else {
      newCards = cards.filter((card) => card.cardName.includes(nameFilter)
-        && card.cardRare === rareFilter);
+      && card.cardRare === rareFilter);
    }
    return newCards.map((card, key) => (
      <div key={ key }>
@@ -148,7 +148,7 @@ class App extends React.Component {
        hasTrunfo: !(state.cards[key].cardTrunfo || hasTrunfo),
      };
    });
- }
+ } // fim da delitecard
 
  // fim das funções
  render() {
@@ -162,11 +162,11 @@ class App extends React.Component {
      cardTrunfo,
      hasTrunfo,
      isSaveButtonDisabled,
-     /* nameFilter,
+     nameFilter,
      rareFilter,
-     trunfoFilter, */
+     trunfoFilter,
    } = this.state;
-   const { onInputChange, onSaveButtonClick } = this;
+   const { onInputChange, onSaveButtonClick, updateCardList } = this;
    return (
      <main>
        <h1>Trunfo</h1>
@@ -195,7 +195,7 @@ class App extends React.Component {
          cardTrunfo={ cardTrunfo }
          hasTrunfo={ hasTrunfo }
        />
-
+       { updateCardList(nameFilter, rareFilter, trunfoFilter) }
      </main>
    );
  }
